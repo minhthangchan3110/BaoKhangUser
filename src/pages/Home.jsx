@@ -185,7 +185,7 @@ export default function Home() {
               <img
                 src={item.Image}
                 alt={item.title}
-                className="w-full h-auto object-cover transition-transform duration-500 ease-linear"
+                className="w-full h-[200px] object-cover transition-transform duration-500 ease-linear" // Set fixed height and maintain aspect ratio
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
                 <button
@@ -195,7 +195,7 @@ export default function Home() {
                   Xem thêm
                 </button>
               </div>
-              <span className="md:my-4 m-2 text-center md:text-[16px] text-[12px]">
+              <span className="md:my-4 my-2 text-center md:text-[16px] text-[12px] truncate">
                 {item.Name}
               </span>
             </div>
