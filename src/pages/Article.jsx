@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import Helmet from "../components/Helmet/Helmet";
 
 export default function Article() {
   const { id } = useParams();
@@ -39,13 +40,13 @@ export default function Article() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
+    <Helmet>
       <h1>{title}</h1>
       <div>
         {contentBlocks.map((block, index) => (
           <div key={index} dangerouslySetInnerHTML={{ __html: block }} />
         ))}
       </div>
-    </div>
+    </Helmet>
   );
 }
