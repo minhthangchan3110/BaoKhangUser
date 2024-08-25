@@ -38,7 +38,7 @@ export default function ItemProduct() {
       } catch (err) {
         setError("Lỗi khi tải bài viết.");
       } finally {
-        setLoading(false); // Kết thúc loading
+        setLoading(false);
       }
     };
 
@@ -62,6 +62,7 @@ export default function ItemProduct() {
     };
 
     fetchProducts();
+    fetchSimilarProducts();
   }, [id]); // Thêm `id` vào dependency array
 
   if (loading) {
