@@ -61,21 +61,17 @@ export default function ItemProduct() {
       }
     };
 
-    const fetchCategories = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "categories"));
-        const categories = [];
-        querySnapshot.forEach((doc) => {
-          categories.push({ id: doc.id, ...doc.data() });
-        });
-        setCategory(categories);
-      } catch (error) {
-        console.error("Lỗi khi tải danh mục sản phẩm:", error);
-      }
+    const fetchCategory = async () => {
+      const querySnapshot = await getDocs(collection(db, "category"));
+      const nameCategory = [];
+      querySnapshot.forEach((doc) => {
+        nameCategory.push({ id: doc.id, ...doc.data() });
+      });
+      setCategory(nameCategory);
     };
 
     fetchProducts();
-    fetchCategories(); // Gọi hàm lấy danh mục sản phẩm
+    fetchCategory(); // Gọi hàm lấy danh mục sản phẩm
   }, [id]);
 
   if (loading) {
