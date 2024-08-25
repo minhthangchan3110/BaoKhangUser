@@ -8,10 +8,10 @@ import {
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
-
 import { useNavigate, useParams } from "react-router-dom";
 import { db } from "../firebaseConfig";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+
 export default function ItemProduct() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -61,9 +61,22 @@ export default function ItemProduct() {
       }
     };
 
+    const fetchCategories = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "categories"));
+        const categories = [];
+        querySnapshot.forEach((doc) => {
+          categories.push({ id: doc.id, ...doc.data() });
+        });
+        setCategory(categories);
+      } catch (error) {
+        console.error("Lỗi khi tải danh mục sản phẩm:", error);
+      }
+    };
+
     fetchProducts();
-    fetchSimilarProducts();
-  }, [id]); // Thêm `id` vào dependency array
+    fetchCategories(); // Gọi hàm lấy danh mục sản phẩm
+  }, [id]);
 
   if (loading) {
     return (
@@ -73,6 +86,7 @@ export default function ItemProduct() {
     );
   }
   if (error) return <div>{error}</div>;
+
   const handleCategory = (categoryName) => {
     navigate(`/product-list?category=${categoryName}`);
   };
@@ -80,6 +94,7 @@ export default function ItemProduct() {
   const handleProduct = (id) => {
     navigate(`/product/${id}`);
   };
+
   return (
     <div className="font-montserrat py-2 md:px-[100px] px-4">
       <div className="md:grid md:grid-cols-4 flex flex-col">
@@ -150,7 +165,7 @@ export default function ItemProduct() {
                 className={`font-semibold flex items-center gap-2 text-lg hover:scale-105 hover:text-red-500 hover:cursor-pointer  duration-300 ${
                   selectedCategory === item.name ? "text-red-500" : ""
                 }`}
-                onClick={() => handleCategory(item.name)} // Thay đổi
+                onClick={() => handleCategory(item.name)}
               >
                 <MdKeyboardDoubleArrowRight />
                 <div className="truncate whitespace-nowrap text-sm overflow-hidden">
