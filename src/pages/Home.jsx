@@ -208,15 +208,14 @@ export default function Home() {
         <section className="my-4">
           <div className="my-8">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1862.4263904455945!2d105.8126686392814!3d20.99853765667463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac9085f43493%3A0x4aa558eb2ca66825!2zTmfDtSAxODEgxJDGsOG7nW5nIE5ndXnhu4VuIFRyw6NpLCBUaMaw4bujbmcgxJDDrG5oLCBUaGFuaCBYdcOibiwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1721679034675!5m2!1svi!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.1595464120755!2d105.86801207502978!3d20.972830880662542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac2670602d25%3A0x2cb1fc685d44d179!2zMzggTmcuIDc5IFAuIFnDqm4gRHV5w6puLCBZw6puIFPhu58sIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e1!3m2!1svi!2s!4v1725061508945!5m2!1svi!2s"
               width="600"
               height="450"
-              style={{ border: "0" }} // Sử dụng đối tượng JavaScript thay vì chuỗi
-              allowFullScreen
+              style={{ border: "0" }}
+              allowfullscreen=""
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-[300px]"
-            />
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </section>
 
