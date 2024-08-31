@@ -215,6 +215,7 @@ export default function Home() {
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
+              className="w-full h-[300px]"
             ></iframe>
           </div>
         </section>

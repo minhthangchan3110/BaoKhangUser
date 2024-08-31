@@ -195,6 +195,7 @@ export default function Contact() {
             style={{ border: "0" }}
             allowfullscreen=""
             loading="lazy"
+            className="w-full h-[300px]"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
